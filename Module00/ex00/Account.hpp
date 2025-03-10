@@ -25,8 +25,8 @@ private:
 	void		setValue(int amount);
 public:
 	Account(int id, int val);
-	const int	&getId() const;
-	const int	&getValue() const;
+	const int		&getId() const;
+	const double	&getValue() const;
 	friend class Bank;
 };
 
