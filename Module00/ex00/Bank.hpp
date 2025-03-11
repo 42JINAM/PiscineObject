@@ -6,7 +6,7 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:09:16 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/10 17:32:36 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/11 16:03:43 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,18 @@ private:
 	std::vector<Account *>	clientAccounts;
 	int						nextAccountId;
 private:
-	Account	&findClientAccount(int id);
-
+	typedef std::vector<Account *>::iterator	accountIter;
+	accountIter	findClientAccount(int id);
 public:
 	Bank();
+	Bank(double amount);
 	~Bank();
+	void			setLiquidity(double amount);
+	const double	&getLiquidity(void);
 	const Account&	createAccount(int value);
 	void			deleteAccount(const Account &account);
 	void			modifyAccount(const Account &account, int value);
+	void			depositAccount(const Account &account, int value);
 	bool			loanToCustomer(const Account &account, int value);
 	void			displayAccount(const Account &account);
 };

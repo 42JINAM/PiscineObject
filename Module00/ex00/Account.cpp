@@ -6,11 +6,15 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 18:54:29 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/10 18:54:41 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/11 15:31:15 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+Account::Account()
+	:id(-1), value(0)
+{
+}
 Account::Account(int id, int val)
 	:id(id), value(val)
 {
