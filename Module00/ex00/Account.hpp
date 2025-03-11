@@ -12,6 +12,7 @@
 #ifndef ACCOUNT_HPP
 #define ACCOUNT_HPP
 
+#include <ostream>
 class Bank;
 class Account
 {
@@ -28,6 +29,7 @@ public:
 	const int		&getId() const;
 	const double	&getValue() const;
 	friend class Bank;
+	friend std::ostream& operator << (std::ostream& p_os, const Account& p_account);
 };
 
 #endif // !ACCOUNT_HPP

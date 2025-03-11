@@ -43,3 +43,9 @@ void	Account::setValue(int amount)
 	value = amount;
 }
 
+std::ostream& operator << (std::ostream& p_os, const Account& p_account)
+{
+	p_os << "[" << p_account.getId() << "] - [" << p_account.getValue() << "]";
+	return (p_os);
+}
+
