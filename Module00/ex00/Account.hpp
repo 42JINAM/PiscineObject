@@ -6,7 +6,7 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:14:37 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/11 15:31:30 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/11 16:41:02 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef ACCOUNT_HPP
@@ -21,12 +21,12 @@ private:
 	double			value;
 
 private:
-	void		deposit(int amount);
-	bool		withdraw(int amount);
-	void		setValue(int amount);
+	void		deposit(double amount);
+	bool		withdraw(double amount);
+	void		setValue(double amount);
 public:
 	Account();
-	Account(int id, int val);
+	Account(int id, double val);
 	const int		&getId() const;
 	const double	&getValue() const;
 	friend class Bank;

@@ -6,7 +6,7 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:08:07 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/11 16:15:51 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/11 16:40:18 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ const double	&Bank::getLiquidity(void)
 	return (this->liquidity);
 }
 
-const Account&	Bank::createAccount(int value)
+const Account&	Bank::createAccount(double value)
 {
 	Account *newAccount = new Account(nextAccountId++, value * 0.95);
 	this->liquidity += value * 0.05;

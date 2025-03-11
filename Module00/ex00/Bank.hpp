@@ -6,7 +6,7 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:09:16 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/11 16:03:43 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/11 16:40:05 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	~Bank();
 	void			setLiquidity(double amount);
 	const double	&getLiquidity(void);
-	const Account&	createAccount(int value);
+	const Account&	createAccount(double value);
 	void			deleteAccount(const Account &account);
 	void			modifyAccount(const Account &account, int value);
 	void			depositAccount(const Account &account, int value);

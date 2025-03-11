@@ -1,0 +1,29 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jinam <jinam@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/11 16:42:52 by jinam             #+#    #+#              #
+#    Updated: 2025/03/11 16:53:17 by jinam            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+TARGET = "ex00"
+CC = g++
+CC_FLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRCS = Account \
+	   Bank \
+	   main \
+
+OBJ_DIR = obj
+OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(SRCS)))
+
+all: $(TARGET)
+
+$(TARGET) : $(OBJS)
+	$(CC) $(CC_FLAGS) -o $@ $(OBJS)
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p 
