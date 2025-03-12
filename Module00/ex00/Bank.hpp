@@ -23,7 +23,7 @@ private:
 	int						nextAccountId;
 private:
 	typedef std::vector<Account *>::iterator	accountIter;
-	accountIter	findClientAccount(int id);
+	accountIter	findClientAccount(const Account *account);
 public:
 	Bank();
 	Bank(double amount);
@@ -35,7 +35,8 @@ public:
 	void			modifyAccount(const Account &account, int value);
 	void			depositAccount(const Account &account, int value);
 	bool			loanToCustomer(const Account &account, int value);
-	void			displayAccount(const Account &account);
+	friend std::ostream& operator << (std::ostream& p_os, const Bank& p_bank);
+
 };
 
 #endif // !BANK_H

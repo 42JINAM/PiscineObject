@@ -12,8 +12,11 @@
 
 #include "Bank.hpp"
 #include "Account.hpp"
+#include <iostream>
+#include <ostream>
 Bank::Bank()
 {
+	this->liquidity = 0;
 	this->nextAccountId = 0;
 }
 
@@ -31,13 +34,13 @@ Bank::Bank(double amount)
 {
 }
 
-Bank::accountIter	Bank::findClientAccount(int id)
+Bank::accountIter	Bank::findClientAccount(const Account *account)
 {
 	accountIter	it;
 	for (it = this->clientAccounts.begin(); it != this->clientAccounts.end();it++)
 	{
-		Account	*acc = *it;
-		if (acc->id == id)
+		const Account	*acc = *it;
+		if (acc == account)
 			return it;
 	}
 	return clientAccounts.end();
@@ -63,7 +66,7 @@ const Account&	Bank::createAccount(double value)
 
 void	Bank::deleteAccount(const Account &account)
 {
-	accountIter	iter = findClientAccount(account.id);
+	accountIter	iter = findClientAccount(&account);
 
 	if (iter != this->clientAccounts.end())
 		this->clientAccounts.erase(iter);
@@ -71,7 +74,7 @@ void	Bank::deleteAccount(const Account &account)
 
 void	Bank::modifyAccount(const Account &account, int value)
 {
-	accountIter	iter = findClientAccount(account.id);
+	accountIter	iter = findClientAccount(&account);
 	
 	if (iter != this->clientAccounts.end())
 	{
@@ -83,7 +86,7 @@ void	Bank::modifyAccount(const Account &account, int value)
 
 void	Bank::depositAccount(const Account &account, int value)
 {
-	accountIter	iter = findClientAccount(account.id);
+	accountIter	iter = findClientAccount(&account);
 
 	if (iter != this->clientAccounts.end())
 	{
@@ -96,7 +99,7 @@ void	Bank::depositAccount(const Account &account, int value)
 
 bool	Bank::loanToCustomer(const Account &account, int value)
 {
-	accountIter	iter = findClientAccount(account.id);
+	accountIter	iter = findClientAccount(&account);
 
 	if (value > this->liquidity || iter == this->clientAccounts.end())
 		return (false);
@@ -104,7 +107,15 @@ bool	Bank::loanToCustomer(const Account &account, int value)
 	depositAccount(account, value);
 	return (true);
 }
-void			displayAccount(const Account &account)
+
+std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)
 {
+    p_os << "Bank informations : " << std::endl;
+    p_os << "Liquidity : " << p_bank.liquidity << std::endl;
+    for (size_t i = 0; i < p_bank.clientAccounts.size(); ++i)
+    {
+        p_os << *(p_bank.clientAccounts[i]) << std::endl;
+    }
+    return p_os;
 }
 

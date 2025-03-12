@@ -25,5 +25,19 @@ all: $(TARGET)
 $(TARGET) : $(OBJS)
 	$(CC) $(CC_FLAGS) -o $@ $(OBJS)
 
-$(OBJ_DIR)/%.o: %.c
-	@mkdir -p 
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ_DIR)
+
+fclean:
+	@$(MAKE) clean
+	@rm -rf $(TARGET)
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
