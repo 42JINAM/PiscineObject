@@ -6,7 +6,7 @@
 /*   By: jinam <jinam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:08:07 by jinam             #+#    #+#             */
-/*   Updated: 2025/03/11 16:40:18 by jinam            ###   ########.fr       */
+/*   Updated: 2025/03/13 18:53:34 by jinam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Bank::Bank()
 Bank::~Bank()
 {
 	accountIter it;
+
 	for (it = this->clientAccounts.begin();it != this->clientAccounts.end();it++)
 	{
 		delete *it;
